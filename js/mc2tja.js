@@ -151,11 +151,10 @@ var mc2tja = function() {
             tja.prop('TITLE', mc.meta.song.title);
             tja.prop('SUBTITLE', '--'+mc.meta.song.artist);
             if (!this.standardTja) {
-                tja.prop('ARTIST', mc.meta.song.artist);
-                tja.prop('AUTHOR', mc.meta.creator);
-                tja.prop('COVER', mc.meta.background);
             }
-
+            if (mc.initTime) {
+                tja.prop('BPM', mc.initTime.bpm);
+            }
             if (mc.mainSample) {
                 tja.prop('WAVE', mc.mainSample.sound);
                 // calculate the real offset & preview offset
@@ -174,13 +173,12 @@ var mc2tja = function() {
                 }
                 offset += (barBegin - lastBeat) * 60 / lastBPM;
                 tja.prop('OFFSET', (-offset).toFixed(3));
-                tja.prop('DEMOSTART', (mc.meta.preview ? 0.001 * mc.meta.preview : offset).toFixed(3));
-            }
-            if (mc.initTime) {
-                tja.prop('BPM', mc.initTime.bpm);
-            }
+
             tja.prop('SONGVOL', 100);
             tja.prop('SEVOL', 100);
+                tja.prop('DEMOSTART', (mc.meta.preview ? 0.001 * mc.meta.preview : offset).toFixed(3));
+            }
+            tja.prop('SCOREMODE', 2);
 
             var course = this.getCourseFromName(mc.meta.version);
             var level = this.getLevelFromName(mc.meta.version);
@@ -190,9 +188,7 @@ var mc2tja = function() {
 
             tja.prop('COURSE', course);
             tja.prop('LEVEL', star);
-            tja.prop('SCOREMODE', 2);
-            tja.prop('SCOREINIT', '');
-            tja.prop('SCOREDIFF', '');
+
 
             // Second: group notes in segments
             // Third: add events according to time points, scaling segments if necessary

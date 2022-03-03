@@ -20,4 +20,8 @@ TaikoJiro introduced tja format that is bar-based, which arranges notes in digit
 
 The executables are published here: [nicovideo](http://www.nicovideo.jp/watch/sm5463901)
 
+## TJAHeader Fork
+Remove no need tja headers(ARTIST,AUTHOR,Etc...)
+
+
 
