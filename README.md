@@ -1,7 +1,7 @@
 # mc2tja
 An Malody to TaikoJiro taiko chart converter implemented with JavaScript
 
-[Use it online(Github Pages)](https://luicat.github.io/mc2tja/)
+[Use it online(Github Pages)](https://kotarouyt.github.io/mc2tja/)
 
 ## Main Feature of mc2tja
 It converts mc format, which is supported by in-game editor of Malody, to tja format, which is used for TaikoJiro.
